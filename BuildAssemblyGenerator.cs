@@ -45,10 +45,19 @@ namespace SoupSoftware
                 string fn = System.IO.Path.GetFileName(FileName).TrimStart().TrimEnd();
                 FileName = System.IO.Path.Combine(Path, fn);
 
-                System.IO.File.WriteAllLines(
-                   FileName, CodeStr
+                if (System.IO.Path.IsPathRooted(FileName))
+                {
+                    
+                        System.IO.File.WriteAllLines(
+                           FileName, CodeStr
 
-                   );
+                           );
+                    
+                }
+                else
+                {
+                    throw new Exception("Invalid FilePath for Assembly Attribute Source Code");
+                }
 
             }
 
