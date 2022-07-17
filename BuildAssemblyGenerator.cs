@@ -68,12 +68,13 @@ namespace SoupSoftware
             }
              return cont;
         }
+        private static string quotes = char.ConvertFromUtf32(34);
 
         private static string[] APIStravc(string assyversion)
         {
             List<string> line = new List<string>();
             line.Add(string.Format("[assembly: Autodesk.Connectivity.Extensibility.Framework.ApiVersion({0})]",
-               new string[] { char.ConvertFromUtf32(34) + assyversion + char.ConvertFromUtf32(34) }));
+                quotes + assyversion + quotes ));
             return line.ToArray();
         }
         private static string[] APIStravb(string assyversion)
@@ -81,7 +82,7 @@ namespace SoupSoftware
             List<string> line = new List<string>();
             
             line.Add(string.Format("<Assembly: Autodesk.Connectivity.Extensibility.Framework.ApiVersion({0})>",
-               new string[] { char.ConvertFromUtf32(34) + assyversion + char.ConvertFromUtf32(34)}));
+                quotes + assyversion + quotes));
             return line.ToArray();
         }
     }
