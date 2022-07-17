@@ -36,6 +36,7 @@ namespace SoupSoftware
                     
                 CodeStr = APIStravc(assyversion);
                 }
+                // some times possible to include /r/n depending how proj XML is formatted, cleanup filename
                 foreach (string c in System.IO.Path.GetInvalidFileNameChars().Intersect(System.IO.Path.GetInvalidPathChars()).Select(x => x.ToString()).ToArray())
                 {
                     FileName = FileName.Replace(c, "");
